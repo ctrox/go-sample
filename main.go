@@ -15,6 +15,7 @@ func main() {
 		io.WriteString(w, os.Getenv(responseEnv)+"\n")
 	})
 
+	log.Fatal("it's broken")
 	if err := http.ListenAndServe(":1337", nil); err != nil {
 		log.Fatal(err)
 	}
