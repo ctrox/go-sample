@@ -12,6 +12,11 @@ const responseEnv = "RESPONSE_TEXT"
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("got request\n")
+		for k, v := range r.Header.Clone() {
+			if len(v) > 0 {
+				log.Printf("%s: %s", k, v[0])
+			}
+		}
 		io.WriteString(w, os.Getenv(responseEnv)+"\n")
 	})
 
