@@ -1,5 +1,10 @@
 port: 1337
-replicas: 3
+replicas: 1
 env:
   - name: RESPONSE_TEXT
     value: "Hello from a Go deplo.io app!"
+deployJob:
+  name: "release"
+  command: "date"
+  retries: 3
+  timeout: 4m
