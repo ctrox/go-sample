@@ -11,7 +11,7 @@ const responseEnv = "RESPONSE_TEXT"
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("got request\n")
+		log.Printf("%s request on path %s\n", r.Method, r.URL.Path)
 		io.WriteString(w, os.Getenv(responseEnv)+"\n")
 	})
 
